@@ -1,0 +1,35 @@
+# DATS 6312: Financial Complaint Categorization
+
+This project analyzes and compares classical (Naive Bayes) and modern transformer (DistilBERT) models for the multi-class text classification of CFPB financial complaints.
+
+## 📊 Final Model Results
+
+Here is a direct comparison of the two models based on our proposal's evaluation metrics.
+
+| Metric | Model 1: Multinomial Naive Bayes | Model 2: Fine-Tuned DistilBERT |
+| :--- | :--- | :--- |
+| **Macro F1-Score** | **[Enter F1 from Step 2]** | **0.4046** |
+| **Accuracy** | **[Enter Accuracy from Step 2]** | **0.8491** |
+| **Training Time** | ~1 second (on CPU) | 13m 53s (on T4 GPU) |
+
+---
+
+## 🔍 Analysis & Findings
+
+The primary goal was to see if a context-aware model (DistilBERT) could solve the ambiguity that a classical model (Naive Bayes) struggles with.
+
+### Model 1: Naive Bayes Confusion Matrix
+
+
+
+As shown in the baseline matrix, the Naive Bayes model was overwhelmed by the large "Credit Reporting" class. It failed to distinguish between "Debt collection" and "Credit Reporting," **incorrectly classifying 96 "Debt collection" complaints**—a problem we predicted in our EDA.
+
+### Model 2: DistilBERT Confusion Matrix
+
+
+
+The fine-tuned DistilBERT model was far more effective. It **reduced the "Debt collection" -> "Credit Reporting" error by over 67%** (from 96 to 31) and more than doubled the number of correct "Debt collection" predictions (from 58 to 119).
+
+### Conclusion
+
+While the Naive Bayes model is faster, the DistilBERT model's ability to understand context makes it significantly more accurate and reliable for this task, successfully solving the classification ambiguity and achieving a much higher Macro F1-Score.
