@@ -35,7 +35,7 @@ The general execution order is:
 ##  Group Members
 * Vaijayanti Deshmukh
 * Amogh Ramagiri
-* Lasya Gowda
+* Lasya Raghavendra
 
 ---
 *Course: DATS 6312 - Natural Language Processing for Data Science*
